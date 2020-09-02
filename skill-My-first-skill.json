@@ -1,0 +1,434 @@
+{
+  "intents": [
+    {
+      "intent": "flightbooking",
+      "examples": [
+        {
+          "text": "online flight booking"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "greeting",
+      "examples": [
+        {
+          "text": "hello"
+        },
+        {
+          "text": "hi"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "mumbaidarshan",
+      "examples": [
+        {
+          "text": "mumbai darshan online booking"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "onlinehotelbooking",
+      "examples": [
+        {
+          "text": "online hotel booking"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "placesmumbai",
+      "examples": [
+        {
+          "text": "places to visit in mumbai"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "trainbooking",
+      "examples": [
+        {
+          "text": "onlinetrainbooking"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "flightbooking",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "flight booking",
+          "synonyms": [
+            "online flight booking"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "greeting",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "hii",
+          "synonyms": [
+            "hello",
+            "hey"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "mumbaidarshan",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "mumbai darshan",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "onlinehotelbooking",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "online hotel booking",
+          "synonyms": [
+            "hotel booking"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "placesmumbai",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "places to visit in mumbai",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "trainbooking",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "trainbooking",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_9_1599048662677",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "placesmumbai",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "top 4 places to visit in Mumbai are:"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "title": "1 JUHU BEACH",
+            "source": "https://www.fabhotels.com/blog/wp-content/uploads/2018/09/Juhu-Beach.jpg",
+            "response_type": "image"
+          },
+          {
+            "title": "2 HAJI ALI DARGAH",
+            "source": "https://www.fabhotels.com/blog/wp-content/uploads/2018/09/Haji-Ali.jpg",
+            "response_type": "image"
+          },
+          {
+            "title": "3 SIDDHIVINAYAK TEMPEL",
+            "source": "https://www.fabhotels.com/blog/wp-content/uploads/2018/09/Siddhivinayak-Temple.jpg",
+            "response_type": "image"
+          },
+          {
+            "title": "4 MARIN DRIVE",
+            "source": "https://www.fabhotels.com/blog/wp-content/uploads/2018/09/Marine-Drive-1.jpg",
+            "response_type": "image"
+          }
+        ]
+      },
+      "conditions": "#placesmumbai",
+      "dialog_node": "node_3_1598965393029",
+      "previous_sibling": "node_9_1598963787923"
+    },
+    {
+      "type": "standard",
+      "title": "online hotel booking",
+      "output": {
+        "generic": [
+          {
+            "title": "The Taj Mahal Palace",
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Taj_Mahal_Palace_Hotel.jpg/1200px-Taj_Mahal_Palace_Hotel.jpg",
+            "response_type": "image"
+          },
+          {
+            "title": "Grand Hayatt Mumbai",
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Grand_Hyatt_Mumbai.jpg/360px-Grand_Hyatt_Mumbai.jpg",
+            "response_type": "image"
+          },
+          {
+            "title": "JW Marriott Mumbai Juhu",
+            "source": "https://media-cdn.tripadvisor.com/media/photo-s/0c/23/5e/e9/j-w-marriot.jpg",
+            "response_type": "image"
+          },
+          {
+            "title": "hilton Mumbai ",
+            "source": "https://indiatravelite.com/uploads/Hilton%20Mumbai%20International%20Airport%201.jpg",
+            "response_type": "image"
+          },
+          {
+            "title": "THE OBEROI MUMBAI",
+            "source": "http://www.fsmagic.com/images/slides/OberoiMumbaislider/Slider1OberoiMumbaiExt.jpg",
+            "response_type": "image"
+          }
+        ]
+      },
+      "conditions": "#onlinehotelbooking",
+      "dialog_node": "node_5_1598966121692",
+      "previous_sibling": "node_3_1598965393029"
+    },
+    {
+      "type": "standard",
+      "title": "trainbooking",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "https://www.irctc.co.in/nget/train-search"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "https://www.makemytrip.com/railways/"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "https://www.goibibo.com/trains/"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#trainbooking",
+      "dialog_node": "node_5_1599048398961",
+      "previous_sibling": "node_9_1599047892829"
+    },
+    {
+      "type": "standard",
+      "title": "greeting",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "hii"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "hello"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#greeting",
+      "dialog_node": "node_9_1598963787923",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "flightbooking",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "https://www.makemytrip.com/flights/"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "https://www.goibibo.com/flights/"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "https://www.yatra.com/flights"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "https://www.goindigo.in/flight-booking.html"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "https://www.emirates.com/in/english/"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#flightbooking",
+      "dialog_node": "node_9_1599047892829",
+      "previous_sibling": "node_5_1598966121692"
+    },
+    {
+      "type": "standard",
+      "title": "mumbai darshan",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "https://www.makemytrip.com/bus-tickets/mumbai-mumbai-darshan-booking.html"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#mumbaidarshan",
+      "dialog_node": "node_9_1599048662677",
+      "previous_sibling": "node_5_1599048398961"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "hey I Am solanki yuvraj. How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "My first skill",
+  "language": "en",
+  "description": ""
+}
